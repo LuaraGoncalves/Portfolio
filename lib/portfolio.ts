@@ -16,10 +16,12 @@ export const profile = {
   name: "Luara",
   fullName: "Luara",
   role: "Desenvolvedora Back-End .NET",
-  email: "",
+  photoUrl: "/foto-perfil.jpg",
+  email: "luara.goncalvesrocha@outlook.com",
   location: "Brasil",
-  githubUrl: "",
-  linkedinUrl: "",
+  githubUrl: "https://github.com/LuaraGoncalves",
+  linkedinUrl: "https://www.linkedin.com/in/luaradev/",
+  whatsappNumber: "+55 18 99632-4393",
   resumeUrl: ""
 };
 
@@ -27,7 +29,7 @@ export const navItems = [
   { label: "Sobre", href: "#sobre" },
   { label: "Habilidades", href: "#habilidades" },
   { label: "Projetos", href: "#projetos" },
-  { label: "Experiência", href: "#experiencia" },
+  { label: "Formação", href: "#formacao" },
   { label: "Contato", href: "#contato" }
 ];
 

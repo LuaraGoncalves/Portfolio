@@ -4,28 +4,53 @@
 
 ## Visual World
 
-Modern software portfolio with a disciplined engineering feel: clean surfaces, precise borders, blue technical accents, white and dark graphite foundations, quiet motion and readable content density.
+The portfolio follows the supplied charcoal and sand interface: a compact
+centered header, a two-column introduction, a broad biography and skill panel,
+a filtered square project gallery, and a split contact panel.
 
-## Color Tokens
+## Color and Material
 
-- Background: near-white in light mode and deep graphite in dark mode.
-- Primary: saturated professional blue for calls to action, active states and technical highlights.
-- Accent: cyan-blue for small system details and status moments.
-- Neutral: slate and gray families for text hierarchy, borders and cards.
-- Success: green only for availability and completed status.
+- Dark mode is the primary presentation: charcoal `#1b1c22`, slate panels
+  `#252630`, pale text, gold `#b8a16a`, sand `#d7bda0`, and quiet gray borders.
+- Light mode remains available as an accessibility and personal-preference
+  option, with warm ivory surfaces and dark readable text.
+- Signal colors follow each theme while preserving contrast for links, key
+  technologies, focus, and interaction states.
+- Project images stay photographic or come from the actual project; never use
+  generated portraits or invented project artwork as biography.
 
 ## Typography
 
-Geist Sans is the primary interface and display type. Geist Mono is reserved for code, metrics and command-like labels.
+Geist Sans carries the name, headings, and paragraphs to match the supplied
+interface. Geist Mono is reserved for technology labels and compact metadata.
+Body copy remains comfortably readable.
 
-## Components
+## Composition
 
-Cards use restrained radii, one elevation model and clear content hierarchy. Buttons are compact and action-oriented with Lucide icons. Badges group technologies and concepts. Forms use clear labels, visible focus states and helper copy.
+- Centered navigation and a split introduction with an initials portrait mark.
+- Biography and skill chips sit in a broad panel, with education details kept
+  in the same reading flow.
+- Projects use a vertical filter on wide screens and square cards; empty, loading,
+  and error states remain honest when the API has no project records.
+- Contact details and the mail form sit side by side on wide screens and stack
+  on narrow screens.
+- Project cards derive their content from the backend. Empty, loading, and error
+  states remain designed and honest.
 
-## Motion
+## Components and Interaction
 
-Motion is limited to one page-level reveal rhythm, subtle hover elevation and theme transitions. Content remains visible and usable without motion.
+Use restrained rounded panels, tonal borders, and sand and gold accents. Links
+underline on hover, buttons expose visible focus, and missing project links
+remain disabled. The mobile navigation wraps into a compact grid.
+
+## Motion and Accessibility
+
+Use one entrance in the hero. Avoid repeated scroll-triggered reveals. Honor
+reduced-motion preferences, keep semantic headings and form labels, and expose
+loading and error changes to assistive technology.
 
 ## Responsive Rules
 
-Desktop uses two-column first viewport and three-column content where useful. Tablet collapses to balanced grids. Mobile prioritizes readable stacking, horizontal-safe navigation, large tap targets and no hidden essential content.
+The hero and section headers become two-column editorial compositions on wide
+screens. Mobile uses a three-column navigation grid, a stacked hero, and two
+columns for compact facts. Avoid horizontal page scrolling at all widths.

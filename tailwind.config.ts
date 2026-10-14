@@ -23,6 +23,8 @@ const config: Config = {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        ink: "hsl(var(--ink))",
+        paper: "hsl(var(--paper))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))"
@@ -58,18 +60,8 @@ const config: Config = {
         sm: "calc(var(--radius) - 4px)"
       },
       boxShadow: {
-        surface: "0 18px 70px rgba(15, 23, 42, 0.10)",
-        lift: "0 24px 90px rgba(37, 99, 235, 0.16)"
+        surface: "var(--shadow-surface)"
       },
-      keyframes: {
-        "caret-pulse": {
-          "0%, 48%": { opacity: "1" },
-          "50%, 100%": { opacity: "0" }
-        }
-      },
-      animation: {
-        "caret-pulse": "caret-pulse 1.1s step-end infinite"
-      }
     }
   },
   plugins: [animate]
