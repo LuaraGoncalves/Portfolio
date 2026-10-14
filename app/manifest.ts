@@ -7,8 +7,8 @@ export default function manifest(): MetadataRoute.Manifest {
     description: "Portfólio profissional para Back-End Developer .NET",
     start_url: "/",
     display: "standalone",
-    background_color: "#f8fafc",
-    theme_color: "#2563eb",
+    background_color: "#1b1c22",
+    theme_color: "#1b1c22",
     icons: [
       {
         src: "/icon.svg",

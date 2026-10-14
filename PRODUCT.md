@@ -36,7 +36,7 @@ Modern, professional, minimal, technically confident, with blue, white and dark 
 
 ## Evidence on Hand
 
-The user supplied stack, content requirements, skill categories, architecture topics, desired tone and deployment intent. Real personal links, live project URLs, certificates and curriculum PDF are not supplied yet and must remain easy placeholders.
+The user supplied the portfolio email address and the local repository remote identifies the GitHub account as `LuaraGoncalves`. The user supplied stack, content requirements, skill categories, architecture topics, desired tone and deployment intent. LinkedIn, live project demos, certificates and a curriculum PDF are not supplied yet and must remain easy placeholders.
 
 ## Product Principles
 

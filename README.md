@@ -55,7 +55,7 @@ Consulte [DEPLOY.md](DEPLOY.md) para publicar a imagem Docker em um servidor.
 ## Checklist antes de publicar
 
 - Confirmar o nome exibido em `lib/portfolio.ts`.
-- Adicionar e-mail, GitHub e LinkedIn em `lib/portfolio.ts`.
+- E-mail e GitHub já configurados em `lib/portfolio.ts`; adicionar LinkedIn se quiser.
 - Adicionar projetos reais em `backend/Portfolio.Api/data/projects.json` e conferir os links.
 - Adicionar o PDF real do currículo e atualizar `profile.resumeUrl`.
 - Definir `NEXT_PUBLIC_SITE_URL` com o domínio publicado.
