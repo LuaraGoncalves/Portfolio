@@ -22,7 +22,7 @@ export const profile = {
   githubUrl: "https://github.com/LuaraGoncalves",
   linkedinUrl: "https://www.linkedin.com/in/luaradev/",
   whatsappNumber: "+55 18 99632-4393",
-  resumeUrl: ""
+  resumeUrl: null as string | null
 };
 
 export const navItems = [
@@ -74,13 +74,17 @@ export const skillGroups = [
 ];
 
 export type PortfolioProject = {
+  id: string;
   title: string;
   image: string;
+  imagePosition?: string | null;
   description: string;
   techs: string[];
   githubUrl: string;
   demoUrl: string | null;
   status: string;
+  screenshots: string[];
+  demoVideoUrl: string | null;
 };
 
 export const architecturePractices = [

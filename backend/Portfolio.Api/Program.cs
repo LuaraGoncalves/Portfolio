@@ -1,36 +1,28 @@
-using System.Text.Json;
+using Microsoft.EntityFrameworkCore;
+using Portfolio.Application.Projects;
+using Portfolio.Infrastructure;
+using Portfolio.Infrastructure.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddProblemDetails();
+builder.Services.AddPortfolioInfrastructure(builder.Configuration);
 var app = builder.Build();
+app.UseExceptionHandler();
 
-app.MapGet("/health", () => Results.Ok(new
+await using (var scope = app.Services.CreateAsyncScope())
 {
-    status = "ok",
-    service = "portfolio-api"
-}));
+    var database = scope.ServiceProvider.GetRequiredService<PortfolioDbContext>();
+    await database.Database.MigrateAsync();
+}
 
-app.MapGet("/api/v1/projects", async (
-    IWebHostEnvironment environment,
-    CancellationToken cancellationToken) =>
-{
-    var filePath = Path.Combine(environment.ContentRootPath, "data", "projects.json");
+app.MapGet("/health", async (PortfolioDbContext database, CancellationToken cancellationToken) =>
+    await database.Database.CanConnectAsync(cancellationToken)
+        ? Results.Ok(new { status = "ok", service = "portfolio-api", database = "ok" })
+        : Results.Problem(title: "Database unavailable", statusCode: StatusCodes.Status503ServiceUnavailable));
 
-    await using var file = File.OpenRead(filePath);
-    var projects = await JsonSerializer.DeserializeAsync<List<PortfolioProject>>(
-        file,
-        new JsonSerializerOptions(JsonSerializerDefaults.Web),
-        cancellationToken);
-
-    return Results.Ok(projects ?? []);
-});
+app.MapGet("/api/v1/projects", async (ListProjects listProjects, CancellationToken cancellationToken) =>
+    Results.Ok(await listProjects.ExecuteAsync(cancellationToken)));
 
 app.Run();
 
-public sealed record PortfolioProject(
-    string Title,
-    string Image,
-    string Description,
-    string[] Techs,
-    string GithubUrl,
-    string? DemoUrl,
-    string Status);
+public partial class Program;

@@ -35,11 +35,13 @@ export const metadata: Metadata = {
       "Desenvolvedora focada em C#, ASP.NET Core, APIs REST, bancos de dados relacionais e arquitetura de software.",
     ...(siteUrl ? { url: siteUrl } : {}),
     siteName: `${profile.fullName} Portfolio`,
+    images: ["/opengraph-image"],
     locale: "pt_BR",
     type: "website"
   },
   twitter: {
     card: "summary_large_image",
+    images: ["/opengraph-image"],
     title: `${profile.fullName} | ${profile.role}`,
     description:
       "Portfólio profissional com foco em Back-End .NET, arquitetura e APIs."

@@ -2,8 +2,14 @@ FROM mcr.microsoft.com/dotnet/sdk:10.0-alpine AS build
 WORKDIR /source
 
 COPY Portfolio.Api/Portfolio.Api.csproj Portfolio.Api/
+COPY Portfolio.Domain/Portfolio.Domain.csproj Portfolio.Domain/
+COPY Portfolio.Application/Portfolio.Application.csproj Portfolio.Application/
+COPY Portfolio.Infrastructure/Portfolio.Infrastructure.csproj Portfolio.Infrastructure/
 RUN dotnet restore Portfolio.Api/Portfolio.Api.csproj
 
+COPY Portfolio.Domain/ Portfolio.Domain/
+COPY Portfolio.Application/ Portfolio.Application/
+COPY Portfolio.Infrastructure/ Portfolio.Infrastructure/
 COPY Portfolio.Api/ Portfolio.Api/
 RUN dotnet publish Portfolio.Api/Portfolio.Api.csproj \
     --configuration Release \

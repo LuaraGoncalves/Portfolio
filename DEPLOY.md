@@ -1,38 +1,39 @@
-# Docker e deploy
+# Executar com Docker e publicar
 
-O Docker Compose inicia duas caixinhas: o site Next.js e a API .NET. Só o site
-abre a porta `3000` no computador. A API fica numa rede interna entre as duas.
+O Docker Compose inicia três serviços separados: frontend Next.js, API ASP.NET
+Core e banco PostgreSQL. Só o frontend publica uma porta. A API e o banco ficam
+na rede interna do Compose.
 
-## Rodar no computador
+## Execução local
 
 ```bash
 docker compose up --build -d
 docker compose ps
 ```
 
-Abra `http://localhost:3000`. O Compose espera a API ficar pronta, verifica os
-dois serviços e reinicia um container se ele parar. Para acompanhar os registros use
-`docker compose logs -f`; para parar use `docker compose down`.
+Abra `http://localhost:3000`. A API aplica suas migrações ao iniciar e responde
+saudável apenas quando consegue acessar o banco. Use `docker compose logs -f`
+para acompanhar os serviços.
 
-## Usar o domínio publicado
+## Configurar domínio e senha
 
-O endereço público entra no HTML durante a montagem da imagem. Crie um arquivo
-`.env` a partir de `.env.example`, coloque seu domínio em
-`NEXT_PUBLIC_SITE_URL` e monte a imagem de novo:
+Copie `.env.example` para `.env`, informe o domínio real em
+`NEXT_PUBLIC_SITE_URL` e defina uma senha forte em `POSTGRES_PASSWORD`. Essas
+configurações não devem conter segredos publicados no GitHub. Depois reconstrua:
 
 ```bash
 docker compose up --build -d
 ```
 
-Em um servidor, configure o DNS do domínio e um proxy HTTPS para encaminhar as
-requisições à porta `3000`. A API continua privada na rede do Docker.
+No servidor, configure DNS e HTTPS com um proxy reverso para o frontend na
+porta `3000`. Mantenha a API e o PostgreSQL sem portas públicas.
 
-## Parar e atualizar
+## Dados e atualização
 
-```bash
-docker compose down
-docker compose up --build -d
-```
+O banco usa o volume `portfolio_data`. `docker compose down` mantém seus
+projetos; `docker compose down -v` apaga também os dados e deve ser tratado como
+uma exclusão. Para backups, use `pg_dump` dentro do container PostgreSQL.
 
-Os dois `Dockerfile`s usam etapas separadas: instalam os pacotes, montam o site
-e a API e guardam nas imagens finais os arquivos necessários para executá-los.
+Quando editar o frontend ou os Dockerfiles, monte a nova imagem com
+`docker compose up --build -d`. Ao atualizar os dados de um projeto, altere a
+tabela PostgreSQL; não é preciso reconstruir imagens.

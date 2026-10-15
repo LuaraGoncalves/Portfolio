@@ -32,11 +32,11 @@ The site must be responsive, production-buildable, deployable with Docker Compos
 
 ## Brand Commitments
 
-Modern, professional, minimal, technically confident, with blue, white and dark gray as the main palette. Visual effects should be discreet and elegant.
+Modern, professional, minimal, technically confident, with charcoal, warm sand and gold as the dark-first palette. Visual effects should be discreet and elegant.
 
 ## Evidence on Hand
 
-The user supplied the portfolio email address and the local repository remote identifies the GitHub account as `LuaraGoncalves`. The user supplied stack, content requirements, skill categories, architecture topics, desired tone and deployment intent. LinkedIn, live project demos, certificates and a curriculum PDF are not supplied yet and must remain easy placeholders.
+The user supplied the portfolio email address, LinkedIn URL and WhatsApp number; the repository remote identifies the GitHub account as `LuaraGoncalves`. The two live project demo URLs are configured. Photo, curriculum PDF, professional full name and production domain have not been confirmed and must not be invented. Project records are public read-only data stored in PostgreSQL.
 
 ## Product Principles
 

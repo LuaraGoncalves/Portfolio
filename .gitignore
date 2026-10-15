@@ -2,6 +2,11 @@ node_modules
 .next
 **/bin/
 **/obj/
+.vs/
+**/.vs/
+.vscode/
+**/*.user
+**/*.suo
 out
 dist
 .env*

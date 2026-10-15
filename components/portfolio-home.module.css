@@ -10,7 +10,7 @@
   overflow-x: clip;
   background: var(--page-bg);
   color: var(--ink);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), sans-serif;
   font-size: 14px;
   line-height: 1.65;
 }
@@ -91,7 +91,7 @@
   box-shadow: 0 8px 22px #0003;
 }
 .portrait span { color: var(--sand); font-size: 52px; font-weight: 800; }
-.portraitPhoto { object-fit: cover; }
+.portraitPhoto { width: 100%; height: 100%; object-fit: cover; }
 .location { display: flex; align-items: center; justify-content: center; gap: 6px; color: var(--muted); font-size: 11px; }
 .location svg { width: 14px; height: 14px; color: var(--sand); }
 
@@ -122,8 +122,6 @@
 .projects { display: grid; min-width: 0; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
 .project { position: relative; display: grid; min-width: 0; aspect-ratio: 1; place-items: center; overflow: hidden; border: 2px solid var(--line); background: var(--panel); transition: border-color .2s, transform .2s; }
 .project:hover { transform: translateY(-3px); border-color: var(--sand); }
-.projectPlaceholder { display: grid; min-width: 0; aspect-ratio: 1; place-items: center; border: 2px solid var(--line); background: var(--panel); color: #a9a0a8; text-align: center; font-size: 11px; transition: border-color .2s, transform .2s; }
-.projectPlaceholder:hover { transform: translateY(-3px); border-color: var(--sand); }
 .projectImage { object-fit: cover; transition: transform .3s ease; }
 .project:hover .projectImage { transform: scale(1.035); }
 .projectDetails { position: absolute; inset: auto 0 0; z-index: 1; padding: 12px; background: linear-gradient(transparent, rgb(15 15 18 / .96) 20%); color: #f2efed; }
@@ -133,6 +131,15 @@
 .projectTechs { display: flex; flex-wrap: wrap; gap: 3px 8px; margin: 6px 0 0; padding: 0; color: var(--sand); font-size: 9px; list-style: none; }
 .projectLinks { display: flex; gap: 12px; margin-top: 7px; border-top: 1px solid #ffffff40; padding-top: 6px; font-size: 10px; }
 .projectLinks svg { width: 12px; height: 12px; }
+.projectMedia { position: absolute; inset: auto 0 0; z-index: 2; color: #f2efed; font-size: 10px; }
+.projectMedia summary { width: fit-content; margin: 0 10px 10px auto; cursor: pointer; border: 1px solid #ffffff50; border-radius: 3px; background: #1b1c22e8; padding: 5px 8px; }
+.projectMedia[open] { inset: 0; overflow: auto; background: #1b1c22f5; padding: 10px; }
+.projectMedia[open] summary { position: sticky; top: 0; margin: 0 0 10px auto; }
+.screenshotGallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.screenshotGallery img { width: 100%; height: auto; border: 1px solid var(--line); object-fit: contain; }
+.projectMedia iframe { display: block; width: 100%; aspect-ratio: 16 / 9; margin-top: 10px; border: 0; }
+.projectMedia a { color: var(--sand); text-decoration: underline; text-underline-offset: 3px; }
+.projectMedia[open] ~ .projectImage { opacity: .08; }
 .projectMessage { grid-column: 1 / -1; display: flex; min-height: 210px; flex-direction: column; align-items: center; justify-content: center; gap: 10px; border: 1px solid var(--line); padding: 24px; color: var(--muted); text-align: center; font-size: 12px; }
 .projectMessage > svg { width: 24px; height: 24px; color: var(--sand); }
 .projectMessage p { max-width: 360px; margin: 0; }
